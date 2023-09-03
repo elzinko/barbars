@@ -1,0 +1,21 @@
+{
+  "name": "barbars",
+  "description": "A real-time handlebars template tester for quickly visualizing your changes",
+  "version": "1.0.0",
+  "author": "Thomas Couderc <thomas.couderc@gmail.com>",
+  "license": "MIT",
+  "main": "app.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "fs.promises": "^0.1.2",
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  }
+}

@@ -1,0 +1,13 @@
+<h1>{{titre}}</h1>
+
+{{> mustaches}}
+{{> beards}}
+
+{{#if printHaircuts}}
+<h2>List of available hair cuts</h2>
+<ul>
+  {{#each suggestedHaircuts}}
+    <li class={{this.type}}>{{this.name}}</li>
+  {{/each}}
+</ul>
+{{/if}}
