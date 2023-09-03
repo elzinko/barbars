@@ -7,12 +7,26 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  color: #ff5722;
+}
+
 ul {
   list-style-type: none;
 }
 
 li {
   margin: 8px 0;
+  counter-increment: item; /* Incrémente le compteur */
+  position: relative; /* Nécessaire pour le positionnement du pseudo-élément */
+}
+
+li::before {
+  content: counter(item) ". "; /* Affiche le compteur */
+  position: absolute; /* Position absolue par rapport à son parent qui a une position relative */
+  left: -1.3em; /* Positionne le numéro à gauche du texte */
+  width: 1.2em; /* Largeur fixe pour le numéro */
+  text-align: right; /* Alignement du texte */
 }
 
 a {

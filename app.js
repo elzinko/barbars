@@ -2,19 +2,14 @@
   import { create } from 'express-handlebars';
   import fs from 'fs';
   import path from 'path';
-  import { fileURLToPath } from 'url';
-
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
 
   const app = express();
   const port = 3000;
 
-  // const configDir = path.join(__dirname, 'conf');
   const configDir = path.join('conf');
-  const exampleNames = fs.readdirSync(configDir).filter((dir) => fs.statSync(path.join(configDir, dir)).isDirectory());
-
+  const exampleDirs = fs.readdirSync(configDir).filter((dir) => fs.statSync(path.join(configDir, dir)).isDirectory());
   const layoutDirs = path.join('views', 'layouts')
+  const viewsDirs = ['views'].concat(exampleDirs.map((example) => path.join(configDir, example)));
 
   const hbs = create({
     layoutsDir: layoutDirs,
@@ -23,16 +18,15 @@
 
   app.engine('handlebars', hbs.engine);
   app.set('view engine', 'handlebars');
-
-  let viewsDirs = exampleNames.map((example) => path.join(configDir, example));
-  viewsDirs.push('views');
   app.set('views', viewsDirs);
 
-  app.get('/', (req, res) => {
-    res.render('index', { layout: 'main', examples: exampleNames }); // Utilisez le layout 'main'
+  app.use(express.static('public'));
+
+  app.get('/', (_, res) => {
+    res.render('index', { layout: 'main', examples: exampleDirs }); // Utilisez le layout 'main'
   });
 
-  exampleNames.forEach((example) => {
+  exampleDirs.forEach((example) => {
     const examplePath = path.join(configDir, example);
 
     // Static files for styles
@@ -65,7 +59,7 @@
       if (fs.existsSync(templatePath)) {
         // Charger les données et les options de mise en page
         const layoutOptions = {
-          layout: 'barbars', // Utilisez le layout 'barbars'
+          layout: 'examples', // Utilisez le layout 'examples'
           title: example,
           style: {
             location: `/${example}/style.css`
