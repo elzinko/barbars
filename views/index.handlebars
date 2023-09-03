@@ -1,0 +1,51 @@
+<h1>Barbars</h1>
+
+<h2>What is Barbars?</h2>
+<p>
+  <a href='https://github.com/elzinko/barbars'>Barbars</a> is an advanced, yet easy-to-use framework for building dynamic and
+  robust web applications. Unlike traditional frameworks, Barbars is designed
+  with flexibility and scalability in mind, making it ideal for projects of any
+  size. Its intuitive structure and built-in utilities provide a fast track to
+  application development, cutting down on the boilerplate code and enabling you
+  to focus on your unique business logic.
+</p>
+
+<h2>What is [Handlebars?</h2>
+<a>
+  <a href='https://handlebarsjs.com/'>Handlebars</a> is a popular templating engine that allows you to build semantic
+  templates effectively. It provides the power necessary to let you build
+  semantic templates, with a minimal learning curve. You can easily bind data to
+  your UI, create reusable components, and manipulate your DOM, all while
+  keeping your code clean and maintainable.
+</p>
+
+<h2>Examples</h2>
+<p>Here is a provided list of available examples located in the
+  <code>conf</code>
+  folder:</p>
+<ul>
+  {{#each examples}}
+    <li><a href="/{{this}}">{{this}}</a></li>
+  {{/each}}
+</ul>
+
+<h2>How to Use</h2>
+<p>
+  To add a new configuration, follow these simple steps:
+</p>
+<ul>
+  <li>Create a subfolder in the <code>conf</code> directory.</li>
+  <li>Add a
+    <code>.handlebars</code>
+    file within this folder. This will serve as your main template.</li>
+  <li>The folder name will become the URL endpoint for this particular example.</li>
+  <li>(Optional) Add a
+    <code>partials</code>
+    subfolder for Handlebars partials, if needed.</li>
+  <li>(Optional) Include a
+    <code>data.json</code>
+    file for injecting data into your Handlebars template.</li>
+  <li>(Optional) Include a
+    <code>style.css</code>
+    file to style your example.</li>
+</ul>

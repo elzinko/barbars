@@ -1,70 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #4caf50;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
 li {
-  font-size: 2rem;
-  width: 300px;
-  margin: 4px;
-  padding: 4px;
-  list-style: none;
-  color: white;
+  margin: 8px 0;
 }
 
-/* Hairs */
-.short {
-  background-color: #ffe4b5; /* Couleur "Beige" pour les cheveux courts */
-}
-.medium {
-  background-color: #deb887; /* Couleur "Marron clair" pour les cheveux moyens */
-}
-.long {
-  background-color: #8b4513; /* Couleur "Brun cuir" pour les cheveux longs */
-}
-.curly {
-  background-color: #d2691e; /* Couleur "Chocolat" pour les cheveux bouclés */
-}
-.straight {
-  background-color: #a52a2a; /* Couleur "Marron" pour les cheveux raides */
+a {
+  text-decoration: none;
+  color: #2196f3;
 }
 
-/* Mustaches */
-.stylish {
-  background-color: #000000; /* Couleur "Noir" pour les moustaches stylisées */
-}
-.unique {
-  background-color: #ffd700; /* Couleur "Or" pour les moustaches uniques */
-}
-.classic {
-  background-color: #8b4513; /* Couleur "Brun cuir" pour les moustaches classiques (Handlebar) */
-}
-.modern {
-  background-color: #deb887; /* Couleur "Marron clair" pour les moustaches modernes (Dali) */
-}
-.vintage {
-  background-color: #daa520; /* Couleur "Goldenrod" pour les moustaches vintage (Fu Manchu) */
-}
-.sophisticated {
-  background-color: #d2691e; /* Couleur "Chocolat" pour les moustaches sophistiquées (Pencil) */
-}
-.rugged {
-  background-color: #a0522d; /* Couleur "Terre d'ombre" pour les moustaches robustes (Walrus) */
+span {
+  display: block;
+  margin-top: 20px;
 }
 
-/* Pour les barbes */
-
-.short {
-  background-color: #e9967a; /* Couleur "Saumon foncé" pour la barbe de 3 jours */
-}
-
-.long {
-  background-color: #2e8b57; /* Couleur "Vert mer" pour la barbe Viking */
-}
-
-.trimmed {
-  background-color: #808080; /* Couleur "Gris" pour Le Goat */
-}
-
-/*.trimmed {
-  background-color: #808080; // Couleur "Gris" pour les barbes taillées
-}*/
-
-.unique {
-  background-color: #8a2be2; /* Couleur "Bleu violette" pour les Mutton Chops */
+ul li a:hover {
+  color: #ff5722;
 }

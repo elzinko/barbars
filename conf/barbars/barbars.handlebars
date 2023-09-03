@@ -1,8 +1,8 @@
 <h1>{{titre}}</h1>
 
-{{> mustaches}}
-{{> beards}}
+This is a barbars sample using partials.
 
+{{!-- if condition for haircuts print--}}
 {{#if printHaircuts}}
 <h2>List of available hair cuts</h2>
 <ul>
@@ -11,3 +11,8 @@
   {{/each}}
 </ul>
 {{/if}}
+
+ {{!-- partials inclusion --}}
+{{> mustaches}}
+{{> beards}}
+
