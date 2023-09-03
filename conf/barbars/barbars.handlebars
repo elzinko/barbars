@@ -2,17 +2,20 @@
 
 This is a barbars sample using partials.
 
-{{!-- if condition for haircuts print--}}
+{{!-- if condition for haircuts print --}}
 {{#if printHaircuts}}
-<h2>List of available hair cuts</h2>
-<ul>
-  {{#each suggestedHaircuts}}
-    <li class={{this.type}}>{{this.name}}</li>
-  {{/each}}
-</ul>
+<div id="section">
+  <h2>List of available haircuts</h2>
+  <ul>
+    {{#each suggestedHaircuts}}
+      <li class="{{this.type}}">{{this.name}}</li>
+    {{/each}}
+  </ul>
+</div>
 {{/if}}
 
- {{!-- partials inclusion --}}
-{{> mustaches}}
-{{> beards}}
-
+{{!-- partials inclusion --}}
+<div id="section">
+  {{> mustaches}}
+  {{> beards}}
+</div>
