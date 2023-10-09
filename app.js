@@ -3,6 +3,8 @@
   import fs from 'fs';
   import path from 'path';
   import * as helpers from './helpers/helpers.js';
+  import { syncRepos } from './src/core/config/syncRepos.js'
+
 
   const app = express();
   const port = 3000;
@@ -37,6 +39,12 @@
 
   exampleDirs.forEach((example) => {
     const examplePath = path.join(configDir, example);
+
+    // Appeler la synchronisation pour cet exemple
+    syncRepos(example).then(() => {
+      console.log('Synchronisation terminée');
+    }).catch((err) => console.error('Erreur lors de la synchronisation :', err));
+
 
     // Static files for styles
     const stylePath = path.join(examplePath, 'style', 'style.css');

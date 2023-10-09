@@ -10,7 +10,8 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "fs.promises": "^0.1.2",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "simple-git": "^3.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

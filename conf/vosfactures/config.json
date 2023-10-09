@@ -1,0 +1,10 @@
+{
+  "remoteRepos": [
+    {
+      "url": "https://github.com/vosfactures/Formats",
+      "branch": "master",
+      "path": "partials",
+      "destination": "partials"
+    }
+  ]
+}
