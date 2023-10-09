@@ -2,6 +2,7 @@
   import { create } from 'express-handlebars';
   import fs from 'fs';
   import path from 'path';
+  import * as helpers from './helpers/helpers.js';
 
   const app = express();
   const port = 3000;
@@ -16,11 +17,19 @@
     defaultLayout: 'main',
   });
 
+  // register barbars helpers
+  Object.keys(helpers.barbarsHelpers).forEach((helper) => {
+    hbs.handlebars.registerHelper(helper, helpers.barbarsHelpers[helper]);
+  });
+
+
   app.engine('handlebars', hbs.engine);
   app.set('view engine', 'handlebars');
   app.set('views', viewsDirs);
 
   app.use(express.static('public'));
+
+  console.log(hbs.handlebars.helpers);
 
   app.get('/', (_, res) => {
     res.render('index', { layout: 'main', examples: exampleDirs }); // Utilisez le layout 'main'

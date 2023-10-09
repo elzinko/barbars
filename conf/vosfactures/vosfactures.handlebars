@@ -1,0 +1,410 @@
+<div class="invoice_outline vf" {{#if status_paid}}{{#if show_paid_logo}}{{#not_in kind "proforma,estimate"}}style="background:transparent url('{{paid_mark_url}}') no-repeat 50% bottom;"{{/not_in}}{{/if}}{{/if}} >
+
+
+
+
+{{#if canceled }}
+	<div style="text-align: center; font-size: 12px;">
+		<h3>{{ tt "invoice.kind_options.canceled" }}</h3>
+		{{ tt "invoice.cancel_reason" }} : {{ cancel_reason }}
+		<br><br>
+	</div>
+{{/if}}
+
+{{#unless stamp_below_sign_url}}
+
+	{{#if stamp_url}}
+		<div style="background:transparent url('{{stamp_url}}') no-repeat  94% 82%"  id="custom_stamp">
+	{{/if}}
+
+{{/unless}}
+
+
+
+
+
+
+	{{>buttons}}
+          
+
+
+	<table   class="full_width">
+		<tr>
+			<td class="vert_align_top  text_left" >
+				<p>
+					<strong class="big_text">{{document_type}}</strong>
+					<br/>
+					<strong class="medium_text">{{tt "invoice.number"}} {{number}}</strong>
+				</p>
+				<p>
+					<strong class="medium_text">{{print_option}}</strong>
+					<br/>
+					{{#if issue_place}}
+						{{tt "invoice.place"}} : {{issue_place}}, {{tt "invoice.on_date"}} {{issue_date}} <br/>
+					{{else}}
+						{{tt "invoice.issue_date"}} : {{issue_date}} <br/>
+					{{/if}}
+					{{#and show_sell_date sell_date}}
+						{{{sell_date_kind}}} : {{sell_date}}
+					{{/and}}
+				</p>
+				{{#if oid}}
+				<p>
+					{{tt 'invoice.oid'}} : {{oid}}
+				</p>
+				{{/if}}
+				{{#if correction}}
+				<p>
+					{{ correction }}
+				</p>
+				{{else if receipt}}
+				<p>
+					{{ receipt }}
+				</p>
+				{{else if proforma}}
+				<p>
+					{{ proforma }}
+				</p>
+				{{/if}}
+			</td>
+
+			<td class="vert_align_top text_right" id="logo">
+
+				{{#if logo_url}}
+					<img src="{{logo_url}}" alt="logo"/>
+				{{/if}}
+
+			</td>
+		</tr>
+	</table>
+
+	<table   class="seller_buyer full_width">
+		<tr>
+			<td style="width:70%"  class="vert_align_top">
+				<strong>{{tt "invoice.seller"}} :</strong><br/>
+				{{company}}<br/>
+				{{{address}}}<br/>
+
+				{{#if tax_no}}
+					{{tax_no}}<br/>
+				{{/if}}
+
+				{{#and bank bank_account}}
+					<br/>{{bank}} {{bank_account}}
+				{{else}}
+					{{#if bank}}<br/>{{bank}} {{/if}}
+					{{#if bank_account}}<br/>{{bank_account}}{{/if}}
+				{{/and}}
+				{{#if swift}}<br />{{tt "department.bank_swift"}} : {{swift}}{{/if}}
+
+				{{#if email}}<br/>{{email}}{{/if}}
+
+				{{#if www}}<br/>{{www}}{{/if}}
+
+				<br/>
+				{{#if phone}}T: {{phone}}{{/if}}
+				{{#if fax}}, <span class="nowrap">F : {{fax}}</span>{{/if}}
+			</td>
+			<td  style="width:30%"  class="vert_align_top">
+				<strong>
+					{{#eq kind 'receipt'}}
+						{{#if buyer}}
+							{{tt "invoice.buyer"}} :
+						{{/if}}
+					{{else}}
+						{{tt "invoice.buyer"}} :
+					{{/eq}}
+				</strong><br/>
+				<div id="buyer">
+				{{#and client_url show_links }}
+					<a href="{{{client_url}}}" class="incognito-link">{{#if buyer_company}} {{else}} {{buyer_title}} {{/if}} {{{buyer}}}</a>
+				{{else}}
+					{{#if buyer_company}} {{else}} {{buyer_title}} {{/if}} {{{buyer}}}
+				{{/and}}
+				<br/>
+				{{{buyer_address}}}<br/>
+				{{#if buyer_company}}
+					{{#if buyer_tax_no}}
+						{{buyer_tax_no}}<br/>
+					{{/if}}
+				{{/if}}
+				{{#if show_buyer_note }}
+					{{#if buyer_note}}
+						{{{buyer_note}}}<br/>
+					{{/if}}
+				{{/if}}
+				<br>
+				{{#if use_delivery_address}}
+					{{#if delivery_address}}
+					<strong>{{delivery_address_name}}:</strong><br/>
+						{{{delivery_address}}}
+					{{/if}}
+				{{/if}}
+				{{#and multiple_delivery_addresses delivery_address_filled}}
+					<div id="multiple_delivery_addresses">
+						<strong>{{delivery_address_name}}:</strong><br/>
+
+						<p>{{delivery_address_street}},<br/>
+						{{#if delivery_address_street_additional}}
+							{{delivery_address_street_additional}},<br/>
+						{{/if}}
+						{{delivery_address_post_code}}, {{delivery_address_city}}<br/>
+						{{delivery_address_country}}</p>
+					</div>
+				{{/and}}
+				{{#if show_client_phone_on_invoice}}
+					<p>{{tt 'invoice.buyer_phone_short'}} {{buyer_phone}}{{#and buyer_phone buyer_mobile_phone}},{{/and}} {{buyer_mobile_phone}}</p>
+				{{/if}}
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	{{#if title}}
+	<table class="full_width">
+		<tbody>
+		<tr>
+			<td class="small_text text_center">
+				<span>
+					<h4>{{{title}}}</h4>
+				</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	{{/if}}
+
+	{{#not_eq kind 'maintenance_request'}}
+		<!-- si vous souhaitez personnaliser le tableau, vous pouvez le remplacer par https://github.com/vosfactures/Formats/blob/master/partials/positions.handlebars  -->
+		{{>positions}}
+	{{else}}
+		{{>positions_without_prices}}
+	{{/not_eq}}
+
+	{{#if final}}
+		<!-- si vous souhaitez personnaliser la liste des acomptes liés, vous pouvez les remplacer par https://github.com/vosfactures/Formats/blob/master/partials/advances.handlebars -->
+		{{>advances}}
+	{{/if}}
+
+	<!-- si vous souhaitez personnaliser les totaux, vous pouvez les remplacer par https://github.com/vosfactures/Formats/blob/master/partials/totals.handlebars  -->
+	{{>totals}}
+
+	<table class="full_width">
+		<tr>
+			<td class="empty">
+				{{#not_eq kind 'maintenance_request'}}
+					<strong class="medium_text">
+						{{#if negative_outstanding}} {{tt "invoice.to_receive"}} : {{else}} {{tt "invoice.to_pay"}} : {{/if}}
+						{{absolute_outstanding}}
+						<span class="hidden vosfactures3_visible"> {{#if tax_visible}} {{tt "invoice_template.gross"}} {{else}} {{tt "invoice_template.net"}} {{/if}} </span>
+					</strong>
+					{{#if absolute_outstanding_in_words}}
+						<strong>{{tt "invoice.in_words"}} :</strong> {{{absolute_outstanding_in_words}}} <br/>
+					{{/if}}
+
+
+					{{#if paid}}
+					<strong>{{tt "invoice.paid"}} :</strong> {{paid}}
+						{{#unless show_payments_on_invoice}}
+							{{#if show_paid_date}}
+								{{tt 'invoice.paid_on'}} {{paid_date}}
+							{{/if}}
+						{{/unless}}
+					{{/if}}
+				{{/not_eq}}
+			</td>
+		</tr>
+	</table>
+
+	{{#if has_corrected_content}}
+		{{>corrected_content}}
+	{{/if}}
+
+<div style="page-break-inside: avoid !important;">
+	<table  class="full_width">
+		<tr>
+			<td class="empty">
+
+				{{#if type_of_payment}}
+					<div id="type_of_payment_field">
+						<strong>{{tt "invoice.payment_type"}} :</strong> {{type_of_payment}}  <br/>
+					</div>
+				{{/if}}
+
+				{{#if payment_to}}
+					<div id="payment_to_field">
+						<strong>{{tt "invoice.payment_to"}} :</strong> {{payment_to}}	<br/>
+					</div>
+				{{/if}}
+
+				{{#eq locale 'fr'}}
+					{{#eq kind 'estimate' }}
+						{{#if prepayment_required}}
+							<div id="prepayment_required">
+							<strong>{{tt "invoice.prepayment"}}
+							{{#not_eq prepayment_required 'Exact amount'}}
+								{{prepayment_required}}%
+							{{/not_eq}} :</strong>
+								{{prepayment_required_exact_amount}}
+							</div>
+						{{/if}}
+					{{/eq}}
+				{{/eq}}
+
+				{{#if show_interest_rate}}
+					<div id="interest_rate_field">
+						<strong>{{tt "invoice.interest_note"}} :</strong> {{interest_rate}} <br/>
+					</div>
+				{{/if}}
+
+				{{#eq additional_fields.sum_recovery 'client_professionnel'}}
+					{{#if buyer_company}}
+						<div id="sum_recovery_field">
+							<strong>{{legal_cost_compensation}}</strong> <br/>
+						</div>
+					{{/if}}
+				{{/eq}}
+
+				{{#if additional_field_name}}
+					{{#if additional_field_value}}
+						<div id="additional_field">
+							<strong>{{additional_field_name}} : </strong> {{additional_field_value}}
+						</div>
+					{{/if}}
+				{{/if}}
+
+				{{#not_eq additional_fields.advanced_payment_discount 'Néant'}}
+					{{#if additional_fields.advanced_payment_discount}}
+						<div id="advanced_payment_discount_field">
+							<strong>{{tt "invoice.discount_on_advanced_payment_note"}} :</strong> {{additional_fields.advanced_payment_discount}} %<br/>
+						</div>
+					{{/if}}
+				{{/not_eq}}
+
+				{{#if notes}}
+					<br/>
+					<strong>{{tt "invoice.description"}} :</strong>
+					<span id="notes">
+						{{{notes}}}
+					</span>
+				{{/if}}
+
+				{{#if conditional_notes}}
+					<br/>
+					<span id="cond_notes">
+						{{{conditional_notes}}}
+					</span>
+				{{/if}}
+
+				{{#if gocardless_subscription}}
+					<br/>
+					<strong>{{tt 'account.gocardless.sub_info'}}</strong>
+					<br/>
+					<strong>{{tt 'subscription.interval_unit'}} :</strong> {{subscription_interval_unit}}
+					{{#if subscription_month}}
+						<br/>
+						<strong>{{tt 'subscription.month' }} :</strong> {{subscription_month}}
+					{{/if}}
+					{{#if subscription_day_of_month}}
+						<br/>
+						<strong>{{tt 'subscription.day_of_month'}} :</strong> {{subscription_day_of_month}}
+					{{/if}}
+					{{#if subscription_count}}
+						<br/>
+						<strong>{{tt 'subscription.count'}} :</strong> {{subscription_count}}
+					{{/if}}
+				{{/if}}
+
+			</td>
+		</tr>
+	</table>
+
+	{{#if show_payments_on_invoice}}
+		{{>payments}}
+	{{/if}}
+
+	{{#if show_related_estimates_on_invoice}}
+		{{>estimates}}
+	{{/if}}
+
+	<table  class="full_width">
+		<tr>
+			<td class="text_center half_width">
+				{{#or person show_empty_seller_person}}
+				<br/><br/>
+				<strong>{{tt "invoice.seller_person"}}</strong>
+				<br/>
+				<i>{{person}}</i>
+				{{/or}}
+
+
+
+
+
+				{{#if stamp_below_sign_url}}
+
+				<img src="{{stamp_url}}" alt="stamp" style="display:block;margin:auto;max-width:40%"/>
+
+
+
+				{{else}}
+				{{/if}}
+
+
+        {{#if sec_stamp_url}}
+          <img style="display:inline-block;opacity:0.3;position:absolute;margin-top:-120px;margin-left:250px;height:130px" src="{{sec_stamp_url}}" />
+        {{/if}}
+			</td>
+
+			<td class="text_center half_width">
+				{{#if show_date_and_sign}}
+					<strong>{{tt "invoice.date_and_signature_etc"}}</strong><br/>
+					{{#if signature_url}}
+						<p>{{tt "invoice.signature_accept"}} {{signature_date}}</p>
+						<img src="{{signature_url}}" width="60%" height="60%">
+					{{/if}}
+					<!-- Date et signature du client précédée de la mention ‘Bon pour accord’ -->
+				{{/if}}
+			</td>
+		</tr>
+	</table>
+
+</div><!-- /nobreak -->
+
+{{#unless stamp_below_sign_url}}
+
+	{{#if stamp_url}}
+	</div> <!-- custom_stamp -->
+	{{/if}}
+
+
+{{/unless}}
+
+
+</div> <!-- invoice_outline -->
+
+
+{{#if department.name}}
+	<section id="description_footer">
+		<div id="company_info_footer">
+			<span>{{>company_info_footer}}</span>
+		</div>
+	</section>
+{{/if}}<!-- #company_info_footer -->
+
+{{#if description_long}}
+	<hr class="no-print" style="margin-top:0px;" />
+
+	<div class="invoice_outline" id="extra_page" style="page-break-before:always !important;">
+		<table  class="full_width" >
+			<tr>
+				<td class="small_text">
+					<span id="extra_page_content">{{{description_long}}}</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+{{/if}}
+
+
+

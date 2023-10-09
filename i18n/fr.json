@@ -1,0 +1,82 @@
+{
+  "invoice": {
+    "kind_options": {
+      "canceled": "Annulé"
+    },
+    "cancel_reason": "Raison de l'annulation",
+    "number": "N°",
+    "place": "Lieu d'émission",
+    "on_date": "Date de la facture",
+    "issue_date": "Date d'émission",
+    "oid": "ID de commande",
+    "seller": "Vendeur",
+    "buyer": "Acheteur",
+    "buyer_phone_short": "Numéro de téléphone de l'acheteur",
+    "to_receive": "Montant à recevoir",
+    "to_pay": "Montant à payer",
+    "in_words": "Montant en lettres",
+    "paid": "Payé",
+    "payment_type": "Type de paiement",
+    "payment_to": "Paiement à",
+    "prepayment": "Prépaiement",
+    "interest_note": "Note d'intérêt",
+    "description": "Description",
+    "single_position_advance": "Position avancée unique",
+    "tax_visible": "Taxe visible",
+    "tax2_visible": "Deuxième taxe visible",
+    "tax2_details": "Détails de la deuxième taxe",
+    "tax_name": "Nom de la taxe",
+    "show_tax_split": "Afficher la répartition de la taxe",
+    "total": "Total",
+    "show_unit_price_gross": "Afficher le prix unitaire brut",
+    "invoice_position": {
+      "nr": "Numéro de position",
+      "name": "Nom de la position",
+      "code": "Code de la position",
+      "additional_info": "Information additionnelle",
+      "additional_info_desc": "Description de l'information additionnelle",
+      "discount_percent": "Pourcentage de réduction",
+      "quantity": "Quantité",
+      "price_net": "Prix net",
+      "price_gross": "Prix brut",
+      "total_price_net": "Prix total net",
+      "total_price_gross": "Prix total brut",
+      "tax_name": "Nom de la taxe",
+      "tax2_name": "Nom de la deuxième taxe",
+      "tax1_value_name": "Valeur de la taxe 1",
+      "tax2_value_name": "Valeur de la taxe 2",
+      "tax_value_name": "Valeur de la taxe",
+      "bill_price_net": "Facturer le prix net",
+      "nr_col": "Numéro de colonne",
+      "name_col": "Nom de colonne",
+      "code_col": "Code de colonne",
+      "additional_info_col": "Colonne d'informations additionnelles",
+      "discount_col": "Colonne de réduction",
+      "quantity_col": "Colonne de quantité",
+      "price_net_col": "Colonne de prix net",
+      "price_gross_col": "Colonne de prix brut",
+      "total_price_net_col": "Colonne de prix total net",
+      "total_price_gross_col": "Colonne de prix total brut",
+      "tax_col": "Colonne de taxe",
+      "tax2_col": "Colonne de deuxième taxe",
+      "tax_value_col": "Colonne de valeur de taxe",
+      "tax1_value_col": "Colonne de valeur de la première taxe",
+      "tax2_value_col": "Colonne de valeur de la deuxième taxe",
+      "subtotal_row": "Ligne de sous-total",
+      "subtotal_col": "Colonne de sous-total",
+      "text_separator": "Séparateur de texte"
+    }
+  },
+  "account": {
+    "gocardless": {
+      "sub_info": "Informations sur l'abonnement GoCardless"
+    }
+  },
+  "subscription": {
+    "interval_unit": "Unité d'intervalle d'abonnement",
+    "month": "Mois",
+    "day_of_month": "Jour du mois",
+    "count": "Nombre d'abonnements"
+  },
+  "invoice_seller_person": "Représentant du vendeur"
+}

@@ -1,0 +1,347 @@
+@media all {
+  .invoice_outline b,
+  .invoice_outline strong {
+    color: #00a6f0;
+  }
+
+  .invoice_outline h4 {
+    font-family: georgia, helvetica, serif;
+    text-align: left;
+    margin: 5px auto !important;
+  }
+  .invoice.invoice_preview {
+    font-family: georgia, helvetica, serif;
+    line-height: 1.4em;
+  }
+  .invoice_outline table {
+    border-collapse: collapse;
+    empty-cells: hide;
+    border: 0;
+  }
+  .invoice_outline table th {
+    background-color: transparent;
+    color: #00a6f0;
+    font-weight: bold;
+    padding: 6px 5px 3px;
+  }
+  .invoice_outline tr:hover,
+  .invoice_outline tr {
+    background: transparent;
+  }
+  .invoice_outline table td,
+  .invoice_outline table th {
+    border: 0;
+    font-size: 12px;
+    padding: 0;
+    vertical-align: middle;
+  }
+  .invoice_outline {
+    font-family: georgia, helvetica;
+    font-size: 0.9em;
+    margin-left: 0.75cm;
+    margin-right: 0.75cm;
+    min-height: 20cm;
+    margin-bottom: 0in;
+  }
+  .invoice_outline .text_center {
+    text-align: center;
+  }
+  .invoice_outline .text_left {
+    text-align: left;
+  }
+  .invoice_outline .text_right {
+    text-align: right;
+  }
+  .invoice_outline .big_text {
+    font-size: 26px;
+  }
+  .invoice_outline .medium_text {
+    font-size: 16px;
+    display: block;
+    margin: 10px auto;
+  }
+  .invoice_outline hr {
+    height: 1px;
+    color: #ddd;
+    border: 0;
+    border-top: 1px solid #ddd;
+  }
+  .invoice_outline .vert_align_top {
+    vertical-align: top;
+  }
+  table th {
+    background-color: transparent;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 5px 3px;
+  }
+  table th,
+  table td {
+    margin: 0;
+    padding: 0 2px;
+  }
+  th.width0,
+  td.width0 {
+    width: 1%;
+  }
+  th.width1,
+  td.width1 {
+    width: 2%;
+  }
+  th.width2,
+  td.width2 {
+    width: 5%;
+  }
+  th.width3,
+  td.width3 {
+    width: 7%;
+  }
+  th.width4,
+  td.width4 {
+    width: 25%;
+  }
+  .invoice_outline table.main_inv_table th {
+    background: none repeat scroll 0 0 #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #ffffff;
+    color: #000000;
+    padding: 4px 7px;
+    vertical-align: top;
+  }
+  .invoice_outline table.main_inv_table td {
+    border: 1px solid #dddddd;
+    padding: 4px 10px;
+  }
+  .invoice_outline table.main_inv_table .no_border td,
+  .no_border,
+  .no_border td,
+  .invoice_outline table.main_inv_table td.no_border {
+    border: 0;
+  }
+  .seller_buyer {
+    margin: 10px 0;
+  }
+  .invoice_outline .main_inv_table {
+    margin-top: 10px;
+  }
+  .invoice_outline .main_inv_table th,
+  .invoice_outline .main_inv_table td {
+    font-size: 11px;
+  }
+  table.full_width {
+    width: 100%;
+    clear: both;
+  }
+  td.half_width {
+    width: 50%;
+  }
+  table.clean.to_right {
+    margin-top: 20px;
+  }
+  table.to_right {
+    float: right;
+    width: 99%;
+  }
+  table.to_right th {
+    text-align: right;
+  }
+  table.to_right td {
+    width: 15%;
+    text-align: right;
+    padding: 5px 10px;
+  }
+  .payment_button {
+    display: block;
+    float: right;
+    text-align: right;
+    height: 43px;
+    width: 190px;
+    z-index: 999;
+  }
+  .payment_button img {
+    display: block;
+    float: right;
+    text-align: right;
+    width: 190px;
+    height: 43px;
+    z-index: 999;
+  }
+  .text_center {
+    text-align: center;
+  }
+  .number,
+  .digit {
+    white-space: nowrap;
+    text-align: right;
+  }
+  .no_wrap {
+    white-space: nowrap;
+  }
+  .hidden {
+    display: none;
+  }
+
+  .totals_inv_table {
+    margin-top: 0px !important;
+    line-height: 1em;
+  }
+
+  /* .ean_code{font-size: 0.8em;} */
+
+  .medium_text {
+    margin-top: 0px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .full_width {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .advanced_header,
+  .advanced_header_titles th {
+    padding-top: 2px !important;
+    padding-bottom: 1px !important;
+    border-left: 1px solid #ddd !important;
+    border-right: 1px solid #ddd !important;
+  }
+  .advanced_header_titles th {
+    font-weight: normal !important;
+  }
+
+  #logo {
+    width: 10%;
+  }
+  #logo img {
+    max-width: 100%;
+  }
+
+  #corrected_content {
+    width: 100%;
+    margin-top: 6pt;
+    margin-bottom: 12pt;
+  }
+
+  #corrected_content th,
+  #corrected_content td {
+    width: 50%;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  /* ------------------------------------------------- */
+  /* payments list */
+  #invoice_payments {
+    text-align: left;
+    margin-top: 0.5em;
+    width: auto;
+    display: inline-block;
+  }
+
+  #invoice_payments_title {
+    font-weight: bold;
+    background-color: #dddddd;
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+
+  #invoice_payments_list {
+  }
+
+  .invoice_payments_payment {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    padding: 4px 10px;
+  }
+
+  .invoice_payments_payment > div {
+    display: inline-block;
+    font-size: 11px;
+  }
+
+  .invoice_payments_provider::before {
+    content: "- ";
+  }
+
+  .nowrap,
+  .no_wrap {
+    white-space: nowrap;
+  }
+
+  .subtotal_row {
+    background: #dddddd !important;
+  }
+}
+
+@media screen {
+  .invoice_preview.invoice {
+    width: 210mm;
+    padding: 0px;
+    padding-top: 0.5cm;
+  }
+  .invoice_outline {
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
+    margin-right: 0.75cm;
+    margin-left: 0.75cm;
+  }
+}
+
+@page {
+  size: portrait;
+  margin: 0;
+  padding: 0;
+  margin-top: 0.1in;
+}
+@page :first {
+  margin-top: 0.1in;
+  margin-bottom: 0.2in;
+}
+
+@media print {
+  .invoice_title.inv_left,
+  .additional_data,
+  .seller.inv_left,
+  .buyer.inv_right {
+    font-size: 70% !important;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+  .invoice_outline {
+    margin-top: 0.1in;
+    margin-bottom: 0.2in;
+    margin-left: 0.4in;
+    margin-right: 0.4in;
+    padding-top: 0;
+    background-color: transparent;
+    background-position: 50% 15cm !important;
+    min-height: 25cm;
+  }
+  .invoice_outline table.main_inv_table td,
+  .invoice_outline table.main_inv_table th {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+  .invoice_outline {
+    line-height: 1.2em;
+  }
+  .invoice_outline table {
+    font-size: 10% !important;
+    margin-top: 30px;
+  }
+  .totals_inv_table td,
+  .totals_inv_table th {
+    line-height: 0.9em !important;
+    padding-right: 2px !important;
+    font-size: 11px !important;
+  }
+
+  #buyer a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
